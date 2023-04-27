@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>Dizi Hotel - Add Member</title>
+    <style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    max-width: 400px;
+    padding: 20px;
+}
+.container h2{
+    color:#ffba08;
+    text-align: center;
+}
+.container .form{
+    margin-top: 20px;
+}
+.container .form .row{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.container .form .row input{
+    width: 100%;
+    margin: 10px 15px;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    padding-left: 30px;
+}
+.container .form button {
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    background-color: white;
+    color: #ffba08;
+    border: 1px solid #ffba08;
+    border-radius: 3px;
+}
+.container .form button:hover{
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    color: white;
+    background-color: #ffba08;
+    border: none;
+    border-radius: 3px;
+}
+.container .form .button {
+    height: 30px;
+    width: 80px;
+    margin: 30px auto;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ADD MEMBER</h2>
+        <div class="form">
+            <div class="row">
+                <div class="icon">
+                    <img src="images/profile_icon.png" alt="">
+                </div>
+                <input type="text" placeholder="User Name">
+            </div>
+            <div class="row">
+                <div class="icon">
+                    <img src="images/lock_icon.png" alt="">
+                </div>
+                <input type="text" placeholder="Password">
+            </div>
+            <div class="row">
+                <div class="icon">
+                    <img src="images/lock_icon.png" alt="">
+                </div>
+                <input type="text" placeholder="Confirm Password">
+            </div>
+            <div class="button">
+                <button>Done</button>
+            </div> 
+        </div>
+    </div>
+</body>
+</html>

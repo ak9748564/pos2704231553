@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <title>Dizi Hotel - Login</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 25px;
+      }
+      .container{
+        width: 450px;
+        padding: 80px 20px;
+        /* height: 100px; */
+        border-radius: 20px;
+        border: 1px solid silver;
+      }
+      .container h2, .container h4, .container p{
+        text-align: center;
+      }
+      .container h2{
+        margin-top: 30px;
+      }
+      .container p{
+        color: grey;
+        font-size: 15px;
+        margin-top: 8px;
+      }
+      .container .boxes{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 300px;
+        margin: 30px auto;
+      }
+      .container .boxes .box{
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-bottom: 1px solid black;
+        box-shadow: 1px 1px 10px silver;
+        border-radius: 5px;
+      }
+      .container .boxes .box input{
+        width: 100%;
+        outline: none;
+        /* border: none; */
+        height: 50px;
+        font-size: 30px;
+        padding: 5px;
+      }
+      .container .button{
+        background: #eea734;
+        height: 45px;
+        border-radius: 5px;
+        max-width: 300px;
+        margin: auto;
+      }
+      .container .button button{
+        width: 100%;
+        border: none;
+        background: none;
+        line-height: 45px;
+        color: white;
+        font-weight: 600;
+      }
+      .container .links{
+        max-width: 300px;
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      .container .links a:nth-child(1){
+        text-decoration: none;
+        color: grey;
+        font-size: 12px;
+      }
+      .container .links a:nth-child(2){
+        text-decoration: none;
+        color: #eea734;
+        font-size: 12px;
+      }
+      .container .policy{
+        color: grey;
+        font-weight:600;
+        font-size: 12px;
+        text-align: center;
+        max-width: 300px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <h4>Login to DiziHotel</h4>
+        <h2>Verify phone number</h2>
+        <p>Enter the 4-Digit code sent to you at +97798754845</p>
+        <div class="boxes">
+            <div class="box">
+                <input type="text">
+            </div>
+            <div class="box">
+                <input type="text">
+            </div>
+            <div class="box">
+                <input type="text">
+            </div>
+            <div class="box">
+                <input type="text">
+            </div>
+        </div>
+        <div class="button"><button>CONTINUE</button></div>
+        <div class="links">
+            <a href="">Didn't received otp?</a>
+            <a href="">Resend Code</a>
+        </div>
+        <p class="policy">By Signing up you agree to our Terms Conditions & Privacy Policy.</p>
+    </div>
+  </body>
+</html>

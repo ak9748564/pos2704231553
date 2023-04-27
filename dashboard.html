@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <title>Dizi Hotel - Login</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body{
+        width: 100%;
+        height: 100%;
+      }
+      .container{
+        display: flex;
+        width: 100%;
+        height: 100%;
+      }
+      .left_sidebar{
+        width: 0px;
+        min-height: 100vh;
+        border-right: 1px solid silver;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-x: hidden;
+        background: white;
+        
+      }
+      .left_sidebar .empty_div{
+        height: 100%;
+        width: 80px;
+      }
+      .logo_div
+      {
+        min-height: 80px;
+        min-width: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu_div>div{
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .menu_div>div>div , .logout_div>div>div {
+        /* border: 1px solid black; */
+        width: 68px;
+        height: 60px;
+        padding-top: 5px;
+        border-radius: 10px;
+      }
+      .menu_div>div>div:hover , .logout_div>div>div:hover {
+        background: #e4d1ca;
+        box-shadow: 1px 1px 10px silver;
+      }
+      .logout_div>div 
+      {
+        width: 80px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .menu_div>div svg , .logout_div>div svg{
+        margin: 0px 21px;
+      }
+      .menu_div>div p , .logout_div>div p{
+        text-align: center;
+      }
+      .inner_container{
+        width: 100%;
+        height: 100%;
+        padding-right:20px ;
+      }
+      .inner_upper_container{
+        display: block;
+        width: 100%;
+      }
+      .inner_upper_left{
+        width: 100%;
+      }
+      .inner_upper_left>div:nth-child(1){ 
+        width: 100%;
+        height: 80px;
+        display: block;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 50px;
+        color: #F99853;
+        font-weight: 600;
+        font-size: 24px;
+      }
+      .inner_upper_left>div:nth-child(2)>div:hover {
+        /* background: #e4d1ca; */
+        box-shadow: 1px 1px 10px silver;
+        cursor: pointer;
+      }
+      .inner_upper_right{
+        width: 300px;
+        height: 100px;
+        margin: 0px 20px;
+        margin-bottom: 100px;
+      }
+      .inner_upper_right_upper{
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .inner_upper_right_upper svg{
+        /* margin: 0px 15px; */
+      }
+      .inner_upper_right_upper p{
+        text-align: center;
+      }
+      .choose_category{
+        height: 30px;
+        border: 1px solid silver;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      .choose_category input{
+        outline: none;
+        border: none;
+      }
+      .single_menu{
+        display: block;
+      }
+      .hidden_div{
+        display:flex;
+      }
+      /* media queries */
+      @media (min-width:900px) {
+        .inner_upper_left>div:nth-child(1){ 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .choose_category{
+        margin-top: 0;
+      }
+      }
+      @media (min-width:700px) {
+        .inner_upper_container{
+          display: flex;
+        }
+        .inner_upper_right{
+          margin: 0px;
+        }
+      }
+      @media (min-width:501px) {
+        .single_menu{
+          display: flex;
+        }
+        .left_sidebar{
+          min-width: 80px;
+          
+        }
+      }
+      @media (max-width:500px) {
+        .single_menu{
+          display: flex;
+        }
+        .left_sidebar{
+          min-width: 0px;
+          overflow-y:scroll;
+        height:100vh;
+        }
+      }
+      @media(min-width:501px)
+      {
+        .hidden_div{
+          display:none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- main container  -->
+<div class="hidden_div" style="justify-content:space-between;align-items:center;padding: 20px;">
+  <div><h2>BF</h2></div>
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-circle cross_icon" viewBox="0 0 16 16" style="display:none;">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list menu_icon" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+    </svg>
+</div>
+</div>
+    <div class="container">
+        <!-- left sidebar -->
+    <div class="left_sidebar">
+      <div style="display:flex;justify-content:space-between;flex-direction:column">
+         <div class="logo_div">
+            <h1>BF</h1>
+         </div>
+         <div class="menu_div">
+            <div class="">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+                    </svg>
+                    <p>Home</p>
+                </div>
+            </div>
+            <div class="">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+                    </svg>
+                    <p>Menu</p>
+                </div>
+            </div>
+            <div class="">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
+                    <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
+                    <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                    </svg>
+                    <p>History</p>
+                </div>
+            </div>
+            <div class="">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
+                    </svg>
+                    <p>Wallet</p>
+                </div>
+            </div>
+            <div class="">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+                    </svg>
+                    <p>Member</p>
+                </div>
+            </div>
+            <div class="">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                    </svg>
+                    <p>Settings</p>
+                </div>
+            </div>
+        </div>
+        <div class="empty_div">
+
+        </div>
+        <div class="logout_div">
+            <div class="">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/><path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                    </svg>
+                    <p>Logout</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- inner container -->
+    <div class="inner_container">
+        <!-- inner_upper_container -->
+        <div class="inner_upper_container">
+            <!-- inner_upper_left -->
+            <div class="inner_upper_left">
+                <div>
+                    <p>Choose Category</p>
+                    <div class="choose_category">
+                        <input type="text" placeholder="Search Category or Menu" style="width:100%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16" style="color:black;"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div style="display: flex;flex-wrap: wrap;justify-content: center;padding: 20px;">
+                    <div style="min-width:80px;height:80px;border-radius: 10px;background-image: url(images/cross.png);display: inline-block;margin: 10px;border:1px solid #ececec;background-repeat: no-repeat;background-size: cover;background-position: center;">
+                      <div style="display:flex;height: 30px;padding-right: 5px;">
+                        <div style="width:100%;"></div>
+                        <div style="margin: auto;width: 16px;height:16px;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div style="height:27px"></div>
+                      <p style="text-align:center;">All</p>
+                    </div>
+                    <div style="min-width:80px;height:80px;border-radius: 10px;background-image: url(images/cross.png);display: inline-block;margin: 10px;border:1px solid #ececec;background-repeat: no-repeat;background-size: cover;background-position: center;">
+                      <div style="display:flex;height: 30px;padding-right: 5px;">
+                        <div style="width:100%;"></div>
+                        <div style="margin: auto;width: 16px;height:16px;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div style="height:27px"></div>
+                      <p style="text-align:center;">Momo</p>
+                    </div>
+                    <div style="min-width:80px;height:80px;border-radius: 10px;background-image: url(images/cross.png);display: inline-block;margin: 10px;border:1px solid #ececec;background-repeat: no-repeat;background-size: cover;background-position: center;">
+                      <div style="display:flex;height: 30px;padding-right: 5px;">
+                        <div style="width:100%;"></div>
+                        <div style="margin: auto;width: 16px;height:16px;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div style="height:27px"></div>
+                      <p style="text-align:center;padding:0px 5px;">Chowmin</p>
+                    </div>
+                    <div style="min-width:80px;height:80px;border-radius: 10px;background-image: url(images/cross.png);display: inline-block;margin: 10px;border:1px solid #ececec;background-repeat: no-repeat;background-size: cover;background-position: center;">
+                      <div style="display:flex;height: 30px;padding-right: 5px;">
+                        <div style="width:100%;"></div>
+                        <div style="margin: auto;width: 16px;height:16px;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div style="height:27px"></div>
+                      <p style="text-align:center;">Sekuwa</p>
+                    </div>
+                    <div style="min-width:80px;height:80px;border-radius: 10px;background-image: url(images/cross.png);display: inline-block;margin: 10px;border:1px solid #ececec;background-repeat: no-repeat;background-size: cover;background-position: center;">
+                      <div style="display:flex;height: 30px;padding-right: 5px;">
+                        <div style="width:100%;"></div>
+                        <div style="margin: auto;width: 16px;height:16px;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div style="height:27px"></div>
+                      <p style="text-align:center;">Drinks</p>
+                    </div>
+                    <div style="min-width:80px;height:80px;border-radius: 10px;background-image: url(images/cross.png);display: inline-block;margin: 10px;border:1px solid #ececec;background-repeat: no-repeat;background-size: cover;background-position: center;">
+                      <div style="display:flex;height: 30px;padding-right: 5px;">
+                        <div style="width:100%;"></div>
+                        <div style="margin: auto;width: 16px;height:16px;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div style="height:27px"></div>
+                      <p style="text-align:center;">Non-Veg</p>
+                    </div>
+                </div>
+            </div>
+            <!-- inner_upper_right -->
+            <div class="inner_upper_right">
+                <div class="inner_upper_right_upper">
+                    <div class="">
+                        <div>
+                          <div style="margin: auto;width:24px;height:24px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z"/>
+                            </svg>
+                          </div>
+                            <p style="font-size:15px;">Add Category</p>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div>
+                          <div style="margin: auto;width: 24px;height:24px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                          </div>
+                            <p style="font-size:15px;">Edit</p>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div>
+                          <div style="margin: auto;width: 24px;height:24px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                            </svg>
+                          </div>
+                            <p style="font-size:15px;">Delete</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="display:flex;margin-top:20px;min-width: 250px;max-width:250px;">
+                    <div style="height:60px;width:60px;margin-right:15px;"><img src="images/ram_bahadur_rai.png" alt="" style="width: 100%;"></div>
+                    <div>
+                        <p style="font-weight:600;font-size: 20px;line-height: 25px;">Ram Bahadur rai</p>
+                        <p style="font-size: 16px;line-height: 55px;">Cashier</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- single menu -->
+        <div style="padding-left: 30px;">
+          <div class="single_menu" style="align-items:center;justify-content:space-between;">
+            <h1 style="color:#f99853;">MOMO MENU</h1>
+            <p>15 MOMO result</p>
+          </div>
+          <div style="min-width:100%;display:flex;justify-content:center;">
+          <div style="display: flex;flex-wrap: wrap;justify-content: center;">
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+          <div style="min-width:150px;height:150px;border-radius: 10px;display: inline-block;margin: 10px;border:1px solid #ececec;margin: 20px;">
+            <div style="display:flex;height: 30px;padding-right: 5px;">
+              <div style="width:100%;"></div>
+              <div style="margin: auto;width: 16px;height:16px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="height:22px"></div>
+            <p style="text-align:center;font-weight: 600;font-size: 20px;">Veg-Momo</p>
+            <p style="text-align: center;font-size: 12px;color:#704232;margin-top: 5px;font-weight: 500;">Rs. 100</p>
+          </div>
+        </div>
+      </div>
+        </div>
+    </div>
+   </div>
+   <script>
+    var left_sidebar = document.getElementsByClassName("left_sidebar")[0];
+    var menu_icon =  document.getElementsByClassName("menu_icon")[0];
+    var cross_icon =  document.getElementsByClassName("cross_icon")[0];
+ 
+    menu_icon.onclick = function(){
+      left_sidebar.style.minWidth = "80px";
+      left_sidebar.style.maxWidth = "80px";
+      left_sidebar.style.position = "fixed";
+      left_sidebar.style.top = "0px";
+      left_sidebar.style.boxShadow = "1px 1px 10px silver";
+      left_sidebar.style.transition = "0.5s";
+      cross_icon.style.display = "block";
+      menu_icon.style.display = "none";
+    }
+    cross_icon.onclick = function(){
+      left_sidebar.style.maxWidth = "0px";
+      left_sidebar.style.minWidth = "0px";
+      left_sidebar.style.position = "fixed";
+      left_sidebar.style.top = "0px";
+      left_sidebar.style.boxShadow = "none";
+      cross_icon.style.display = "none";
+      menu_icon.style.display = "block";
+    }
+   </script>
+  </body>
+</html>
